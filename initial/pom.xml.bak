@@ -8,10 +8,10 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.qacomerssia</groupId>
-	<artifactId>qacomerssia</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>spring-boot-initial</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>qacomerssia</name>
+	<name>spring-boot-initial</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
