@@ -2,6 +2,7 @@ import javax.management.monitor.StringMonitor;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Collections;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,19 +19,41 @@ public class Tr_hist implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "tr_domain")
-    @Temporal(TemporalType.Date)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private String tr_domain;
-    private String tr_part;
-    private String tr_site;
-    private String tr_loc;
-    private String tr_effdate; 
-    private String tr_qty_oh;
-    private String tr_nbr;
-    private String tr_tmbr;
     
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Temporal(TemporalType.Date)
+   
+    @Column(name = "tr_domain")
+    @Size(max=50)
+    private String tr_domain;
+    @Size(max=50)
+    @Column(name = "pt_part")
+    private String tr_part;
+    @Size(max=50)
+    @Column(name = "tr_site")
+    private String tr_site;
+    @Size(max=50)
+    @Column(name = "tr_loc")
+    private String tr_loc;
+    @Column(name = "tr_effdate")
+    @Temporal(TemporalType.Date)
+    private Date tr_effdate;
+    @Size(max=50)
+    @Column(name = "tr_qty_oh")
+    private String tr_qty_oh;
+    @Size(max=50)
+    @Column(name = "tr_nbr")
+    private String tr_nbr;
+    @Size(max=50)
+    @Column(name = "tr_tmbr")
+    private String tr_tmbr;
+    @OneToMany (cascade = CascadeType.All, mappedBy = "tr_domain")
+    private Collection<Ld_det> ld_detCollection;
+    @OneToMany (cascade = CascadeType.All, mappedBy = "tr_domain")
+    private Collection<Pt_mstr> pt_mstrCollection;
+   
+    public Tr_hist(){       
+    }
 
     public String getTr_domain()
     {

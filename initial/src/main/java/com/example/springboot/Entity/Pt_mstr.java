@@ -19,13 +19,27 @@ public class Pt_mstr implements Serializable {
     @Column(name = "pt_domain")
     @GeneratedValue(strategy = GenerationType.AUTO)
     
+    @Size(max=50)
     private int pt_domain;
+    @Size(max=50)
+    @Column(name = "pt_part")
     private String pt_part;
+    @Size(max=50)
+    @Column(name = "pt_desc1")
     private String pt_desc1;
+    @Size(max=100)
+    @Column(name = "pt_desc2")
     private String pt_desc2;
+    @Size(max=50)
+    @Column(name = "pt_status")
     private String pt_status;
+    @Size(max=50)
+    @Column(name = "pt_article")
     private String pt_article;
-    
+
+    public Pt_mstr(){      
+    }
+
     public String getPt_domain()
     {
         return pt_domain;

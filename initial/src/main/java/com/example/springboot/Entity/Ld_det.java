@@ -14,16 +14,25 @@ import javax.persistence.Table;
 public class Ld_det implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     @Id
-    @Column(name = "ld_domain")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    
+
+    @Column(name = "ld_domain")
+    @Size(max=50)
     private String ld_domain;
+    @Size(max =50)
+    @Column(name = "ld_site")
     private String ld_site;
+    @Size(max=50)
+    @column(name = "ld_loc")
     private String ld_loc;
+    @Size(size=50)
+    @column(name="ld_qty_oh")
     private String ld_qty_oh;
-    
+
+    public Ld_det(){
+    }
+
     public String getLd_domain()
     {
         return ld_domain;
