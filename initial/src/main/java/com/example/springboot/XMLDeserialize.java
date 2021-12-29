@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import java.com.example.springboot.dto.Test;
+import com.example.springboot.dto.Test;
 
 
 public class XMLDeserialize {
