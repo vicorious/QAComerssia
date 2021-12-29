@@ -1,6 +1,7 @@
 import javax.management.monitor.StringMonitor;
 
 import java.io.Serializable;
+import java.nio.file.FileAlreadyExistsException;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,9 +17,11 @@ public class Pt_mstr implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "pt_domain")
+
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Basic(optional = false)
     
+    @Column(name = "pt_domain")
     @Size(max=50)
     private int pt_domain;
     @Size(max=50)
@@ -36,6 +39,8 @@ public class Pt_mstr implements Serializable {
     @Size(max=50)
     @Column(name = "pt_article")
     private String pt_article;
+    @OneToMany (cascade = CascadeType.All, mappedBy = "pt_domain")
+    private Collection<Tr_hist> tr_histCollection;
 
     public Pt_mstr(){      
     }
@@ -87,7 +92,7 @@ public class Pt_mstr implements Serializable {
         this.pt_article = pt_article;
     }
     
-    public String toString() {
+    /*public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("pt_domain: " + pt_domain + ";");
         buffer.append("pt_part: " + pt_part + ";");
@@ -96,5 +101,29 @@ public class Pt_mstr implements Serializable {
         buffer.append("pt_status: " + pt_status + ";"); 
         buffer.append("pt_article: " + pt_article + ";");
         return buffer.toString();
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+  
+      if (this == o)
+        return true;
+      if (!(o instanceof Pt_mstr))
+        return false;
+      Pt_mstr pt_mstr = (Pt_mstr) o;
+      return Objects.equals(this.pt_domain, pt_mstr.pt_domain) && Objects.equals(this.pt_part, pt_mstr.pt_part)
+      && Objects.equals(this.pt_desc1, pt_mstr.pt_desc1) && Objects.equals(this.pt_desc2, pt_mstr.pt_desc2) 
+      && Objects.equals(this.pt_status, pt_mstr.pt_status)&& Objects.equals(this.pt_article, pt_mstr.pt_article);
+    }
+  
+    @Override
+    public int hashCode() {
+      return Objects.hash(this.pt_domain, this.pt_part, this.pt_desc1, this.pt_desc2,this.pt_status,this.pt_article);
+    }
+  
+    @Override
+    public String toString() {
+      return "Pt_mstr{" + "pt_domain=" + this.pt_domain + ", pt_part='" + this.pt_part + ", pt_desc1='" + this.pt_desc1 +
+      ", pt_desc2='" + this.pt_desc2 + ", pt_status='" + this.pt_status + '\'' + ", pt_article='" + this.pt_article + '\'' + '}';
     }
 }

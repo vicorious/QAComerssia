@@ -115,7 +115,7 @@ public class Tr_hist implements Serializable {
     public void setTr_tmbr(String tr_tmbr) {
         this.tr_tmbr = tr_tmbr;
     }
-    public String toString() {
+    /*public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("tr_domain: " + tr_domain + ";");
         buffer.append("tr_part: " + tr_part + ";");
@@ -126,5 +126,32 @@ public class Tr_hist implements Serializable {
         buffer.append("tr_nbr: " + tr_nbr + ";");
         buffer.append("tr_tmbr: " + tr_tmbr + ";");
         return buffer.toString();
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+  
+      if (this == o)
+        return true;
+      if (!(o instanceof Tr_hist))
+        return false;
+        Tr_hist tr_hist = (Tr_hist) o;
+      return Objects.equals(this.tr_domain, tr_hist.tr_domain) && Objects.equals(this.tr_part, tr_hist.tr_part)
+      && Objects.equals(this.tr_site, tr_hist.tr_site) && Objects.equals(this.tr_loc, tr_hist.tr_loc) 
+      && Objects.equals(this.tr_effdate, tr_hist.tr_effdate)&& Objects.equals(this.tr_qty_oh, tr_hist.tr_qty_oh)
+      && Objects.equals(this.tr_nbr, tr_hist.tr_nbr)&& Objects.equals(this.tr_tmbr, tr_hist.tr_tmbr);
     }
+  
+    @Override
+    public int hashCode() {
+      return Objects.hash(this.tr_domain, this.tr_part, this.tr_site, this.tr_loc,this.tr_effdate,this.tr_qty_oh,
+      this.tr_nbr,this.tr_tmbr);
+    }
+  
+    @Override
+    public String toString() {
+    return "Tr_hist{" + "tr_domain=" + this.tr_domain + "tr_part=" + this.tr_part +"tr_site=" + this.tr_site +", tr_loc='" + this.tr_loc + 
+    ", tr_effdate='" + this.tr_effdate + ", tr_qty_oh='" + this.tr_qty_oh + ", tr_nbr='" + this.tr_nbr + '\'' + ", tr_tmbr='" + this.tr_tmbr + '\'' + '}';
+    }
+}
 }
