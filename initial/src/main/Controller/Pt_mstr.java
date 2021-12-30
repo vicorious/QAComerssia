@@ -39,14 +39,14 @@ public class Pt_mstr{
   // Single item
   
   @GetMapping("/pt_mstr/{pt_mstr}")
-  Pt_mstr one(@PathVariable Long pt_domain) {
+  Pt_mstr one(@PathVariable String pt_domain) {
     
     return repository.findByPt_domain(pt_domain)
       .orElseThrow(() -> new Pt_mstrNotFoundException(pt_domain));
   }
 
   @PutMapping("/pt_mstr/{pt_domain}")
-  Pt_mstr replacePt_mstr(@RequestBody Pt_mstr newPt_mstr, @PathVariable Long pt_domain) {
+  Pt_mstr replacePt_mstr(@RequestBody Pt_mstr newPt_mstr, @PathVariable String pt_domain) {
     
     return repository.findByPt_domain(pt_domain)
       .map(pt_mstr -> {
@@ -59,18 +59,12 @@ public class Pt_mstr{
       })
       .orElseGet(() -> {
         newPt_mstr.setPt_domain(pt_domain);
-        return repository.save(newLd_det);
+        return repository.save(newPt_mstr);
       });
   }
 
   @DeleteMapping("/pt_mstr/{pt_domain}")
-  void deletePt_mstr(@PathVariable Long pt_domain) {
+  void deletePt_mstr(@PathVariable String pt_domain) {
     repository.deleteByPt_domain(pt_domain);
   }
 }
-buffer.append("pt_domain: " + pt_domain + ";");
-buffer.append("pt_part: " + pt_part + ";");
-buffer.append("pt_desc1: " + pt_desc1 + ";");
-buffer.append("pt_desc2: " + pt_desc2 + ";");
-buffer.append("pt_status: " + pt_status + ";"); 
-buffer.append("pt_article: " + pt_article + ";");

@@ -154,4 +154,4 @@ public class Tr_hist implements Serializable {
     ", tr_effdate='" + this.tr_effdate + ", tr_qty_oh='" + this.tr_qty_oh + ", tr_nbr='" + this.tr_nbr + '\'' + ", tr_tmbr='" + this.tr_tmbr + '\'' + '}';
     }
 }
-}
+
