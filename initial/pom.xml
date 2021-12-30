@@ -84,9 +84,8 @@
 						<configuration>
 							<schemaLanguage>WSDL</schemaLanguage>
 							<xmlschema>false</xmlschema>
-							<generateDirectory>src/main/java/com/example/springboot/wsdl</generateDirectory>
-							<generatePackage>com.example.springboot.wsdl</generatePackage>
-							<schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
+							<generateDirectory>src/main/java</generateDirectory>
+							<generatePackage>com.example.springboot.wsdl.mapping</generatePackage>
 							<schemas>
 								<schema>
 									<url>

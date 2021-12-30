@@ -1,13 +1,12 @@
 package com.example.springboot.wsdl;
 
 import com.example.springboot.utils.Constantes;
-import com.example.springboot.wsdl.com.example.springboot.wsdl.WmEnvioTransacciones;
-import com.example.springboot.wsdl.com.example.springboot.wsdl.WmEnvioTransaccionesResponse;
+import com.example.springboot.wsdl.mapping.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 public class ConsumirComerssia extends WebServiceGatewaySupport {
@@ -28,10 +27,8 @@ public class ConsumirComerssia extends WebServiceGatewaySupport {
       envioTransacciones.setPiSIdemp(pi_sIdemp);
       envioTransacciones.setPiSEnvio(pi_sEnvio.toString().getBytes());
 
-      log.info("Requesting location for " + country);
-
       WmEnvioTransaccionesResponse response = (WmEnvioTransaccionesResponse) getWebServiceTemplate()
-        .marshalSendAndReceive(Constantes.WSDL, request,
+        .marshalSendAndReceive(Constantes.WSDL, envioTransacciones,
             new SoapActionCallback(
                 this.callBack));
 
