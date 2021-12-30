@@ -1,8 +1,10 @@
+package com.example.springboot.dto;
+
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 @JacksonXmlRootElement(localName = "transaccion")
-public class Dao{
+public class Dto {
 
     @JacksonXmlProperty(localName = "USUARIO")
     private String usuario;
@@ -71,87 +73,87 @@ public class Dao{
     private String ENCDescRespuesta;
 
     @JacksonXmlProperty(localName = "ICPPresentacion")
-    private ICPPresentacion ICPPresentacion;
+    private String ICPPresentacion;
     @JacksonXmlProperty(localName = "ICPDescripcion")
-    private ICPDescripcion ICPDescripcion;
+    private String ICPDescripcion;
     @JacksonXmlProperty(localName = "ICPCadena")
-    private ICPCadena ICPCadena;
+    private String ICPCadena;
     @JacksonXmlProperty(localName = "ICPLetra")
-    private ICPLetra ICPLetra;
+    private String Icpletra;
 
     @JacksonXmlProperty(localName = "ICPPresentacion")
-    private ICPPresentacion ICPPresentacion;
+    private String icppresentacion;
     @JacksonXmlProperty(localName = "ICPDescripcion")
-    private ICPDescripcion ICPDescripcion;
+    private String icpdescripcion;
     @JacksonXmlProperty(localName = "ICPCadena")
-    private ICPCadena ICPCadena;
+    private String icpcadena;
     @JacksonXmlProperty(localName = "ICPLetra")
-    private ICPLetra ICPLetra;
+    private String icpletra;
 
     @JacksonXmlProperty(localName = "REFCodClasificacion")
-    private REFCodClasificacion REFCodClasificacion;
+    private String REFCodClasificacion;
     @JacksonXmlProperty(localName = "REFCodigo1")
-    private REFCodigo1 REFCodigo1;
+    private String REFCodigo1;
     @JacksonXmlProperty(localName = "REFCodigo2")
-    private REFCodigo2 REFCodigo2;
+    private String REFCodigo2;
     @JacksonXmlProperty(localName = "REFNombreCorto")
-    private REFNombreCorto REFNombreCorto;
+    private String REFNombreCorto;
     @JacksonXmlProperty(localName = "REFNombreLargo")
-    private REFNombreLargo REFNombreLargo;
+    private String REFNombreLargo;
     @JacksonXmlProperty(localName = "CARCodigo1")
-    private CARCodigo1 CARCodigo1;
+    private String CARCodigo1;
     @JacksonXmlProperty(localName = "REFPrecioLista")
-    private REFPrecioLista REFPrecioLista;
+    private String REFPrecioLista;
     @JacksonXmlProperty(localName = "IRFBruto")
-    private IRFBruto IRFBruto;
+    private String IRFBruto;
     @JacksonXmlProperty(localName = "IRFDescuento")
-    private IRFDescuento IRFDescuento;
+    private String IRFDescuento;
     @JacksonXmlProperty(localName = "IRFPago")
-    private IRFPago IRFPago;
+    private String IRFPago;
     @JacksonXmlProperty(localName = "IRFCantidad")
-    private IRFCantidad IRFCantidad;
+    private String IRFCantidad;
     @JacksonXmlProperty(localName = "IRFValorImpuesto")
-    private IRFValorImpuesto IRFValorImpuesto;
+    private String IRFValorImpuesto;
     @JacksonXmlProperty(localName = "IRFImpuesto")
-    private IRFImpuesto IRFImpuesto;
+    private String IRFImpuesto;
     @JacksonXmlProperty(localName = "REFEsCombo")
-    private REFEsCombo REFEsCombo;
+    private String REFEsCombo;
     @JacksonXmlProperty(localName = "REFUltimoCosto")
-    private REFUltimoCosto REFUltimoCosto;
+    private String REFUltimoCosto;
     @JacksonXmlProperty(localName = "PRVCodigo")
-    private PRVCodigo PRVCodigo;
+    private String PRVCodigo;
     @JacksonXmlProperty(localName = "REFManejaLotes")
-    private REFManejaLotes REFManejaLotes;
+    private String REFManejaLotes;
     @JacksonXmlProperty(localName = "REFFactorConversion")
-    private REFFactorConversion REFFactorConversion;
+    private String REFFactorConversion;
     @JacksonXmlProperty(localName = "REFInventario")
-    private REFInventario REFInventario;
+    private String REFInventario;
     @JacksonXmlProperty(localName = "REFEsParaVenta")
-    private REFEsParaVenta REFEsParaVenta;
+    private String REFEsParaVenta;
     @JacksonXmlProperty(localName = "estado")
-    private estado estado;
+    private String estado;
     @JacksonXmlProperty(localName = "IRFPagNoVenta")
-    private IRFPagNoVenta IRFPagNoVenta;
+    private String IRFPagNoVenta;
     @JacksonXmlProperty(localName = "IRFVenta")
-    private IRFVenta IRFVenta;
+    private String IRFVenta;
     @JacksonXmlProperty(localName = "IRFValorImpuestoNeto")
-    private IRFValorImpuestoNeto IRFValorImpuestoNeto;
+    private String IRFValorImpuestoNeto;
     @JacksonXmlProperty(localName = "IRFComision")
-    private IRFComision IRFComision;
+    private String IRFComision;
     @JacksonXmlProperty(localName = "IRFNeto")
-    private IRFNeto IRFNeto;
+    private String IRFNeto;
     @JacksonXmlProperty(localName = "REFCodigoIngresado")
-    private REFCodigoIngresado REFCodigoIngresado;
+    private String REFCodigoIngresado;
     @JacksonXmlProperty(localName = "RREFPuntos")
-    private RREFPuntos RREFPuntos;
-    
+    private String RREFPuntos;
+
     @JacksonXmlProperty(localName = "ICPPresentacion")
-    private ICPPresentacion ICPPresentacion;
+    private String ICPpresentacion;
     @JacksonXmlProperty(localName = "ICPDescripcion")
-    private ICPDescripcion ICPDescripcion;
+    private String ICPdescripcion;
     @JacksonXmlProperty(localName = "ICPCadena")
-    private ICPCadena ICPCadena;
+    private String ICPcadena;
     @JacksonXmlProperty(localName = "ICPLetra")
-    private ICPLetra ICPLetra;
+    private String ICPletra;
 
 }

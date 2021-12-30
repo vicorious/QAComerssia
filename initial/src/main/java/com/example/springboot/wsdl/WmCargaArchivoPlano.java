@@ -26,7 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sNombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sXml" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sPlano" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +40,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
-    "piSEnvio"
+    "piSNombre",
+    "piSXml",
+    "piSPlano"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_CargaArchivoPlano")
+public class WmCargaArchivoPlano {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "pi_sNombre")
+    protected String piSNombre;
+    @XmlElement(name = "pi_sXml")
+    protected byte[] piSXml;
+    @XmlElement(name = "pi_sPlano")
+    protected byte[] piSPlano;
 
     /**
      * Obtiene el valor de la propiedad piSIdemp.
@@ -73,25 +81,71 @@ public class WmEnvioTransacciones {
     }
 
     /**
-     * Obtiene el valor de la propiedad piSEnvio.
+     * Obtiene el valor de la propiedad piSNombre.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiSNombre() {
+        return piSNombre;
+    }
+
+    /**
+     * Define el valor de la propiedad piSNombre.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiSNombre(String value) {
+        this.piSNombre = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSXml.
      * 
      * @return
      *     possible object is
      *     byte[]
      */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
+    public byte[] getPiSXml() {
+        return piSXml;
     }
 
     /**
-     * Define el valor de la propiedad piSEnvio.
+     * Define el valor de la propiedad piSXml.
      * 
      * @param value
      *     allowed object is
      *     byte[]
      */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setPiSXml(byte[] value) {
+        this.piSXml = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSPlano.
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
+     */
+    public byte[] getPiSPlano() {
+        return piSPlano;
+    }
+
+    /**
+     * Define el valor de la propiedad piSPlano.
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
+     */
+    public void setPiSPlano(byte[] value) {
+        this.piSPlano = value;
     }
 
 }

@@ -25,8 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="wm_PruebaServiceConParametroResult" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,61 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "piSIdemp",
-    "piSEnvio"
+    "wmPruebaServiceConParametroResult"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_PruebaServiceConParametroResponse")
+public class WmPruebaServiceConParametroResponse {
 
-    @XmlElement(name = "pi_sIdemp")
-    protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "wm_PruebaServiceConParametroResult")
+    protected String wmPruebaServiceConParametroResult;
 
     /**
-     * Obtiene el valor de la propiedad piSIdemp.
+     * Obtiene el valor de la propiedad wmPruebaServiceConParametroResult.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPiSIdemp() {
-        return piSIdemp;
+    public String getWmPruebaServiceConParametroResult() {
+        return wmPruebaServiceConParametroResult;
     }
 
     /**
-     * Define el valor de la propiedad piSIdemp.
+     * Define el valor de la propiedad wmPruebaServiceConParametroResult.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPiSIdemp(String value) {
-        this.piSIdemp = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad piSEnvio.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
-     */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
-    }
-
-    /**
-     * Define el valor de la propiedad piSEnvio.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
-     */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setWmPruebaServiceConParametroResult(String value) {
+        this.wmPruebaServiceConParametroResult = value;
     }
 
 }

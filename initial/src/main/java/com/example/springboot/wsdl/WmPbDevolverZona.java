@@ -26,7 +26,9 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_iNumeroCalle" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="pi_iNumeroCarrera" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="pi_iNumeroAdicional" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +40,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
-    "piSEnvio"
+    "piINumeroCalle",
+    "piINumeroCarrera",
+    "piINumeroAdicional"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_pb_devolver_Zona")
+public class WmPbDevolverZona {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "pi_iNumeroCalle")
+    protected int piINumeroCalle;
+    @XmlElement(name = "pi_iNumeroCarrera")
+    protected int piINumeroCarrera;
+    @XmlElement(name = "pi_iNumeroAdicional")
+    protected int piINumeroAdicional;
 
     /**
      * Obtiene el valor de la propiedad piSIdemp.
@@ -73,25 +81,51 @@ public class WmEnvioTransacciones {
     }
 
     /**
-     * Obtiene el valor de la propiedad piSEnvio.
+     * Obtiene el valor de la propiedad piINumeroCalle.
      * 
-     * @return
-     *     possible object is
-     *     byte[]
      */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
+    public int getPiINumeroCalle() {
+        return piINumeroCalle;
     }
 
     /**
-     * Define el valor de la propiedad piSEnvio.
+     * Define el valor de la propiedad piINumeroCalle.
      * 
-     * @param value
-     *     allowed object is
-     *     byte[]
      */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setPiINumeroCalle(int value) {
+        this.piINumeroCalle = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piINumeroCarrera.
+     * 
+     */
+    public int getPiINumeroCarrera() {
+        return piINumeroCarrera;
+    }
+
+    /**
+     * Define el valor de la propiedad piINumeroCarrera.
+     * 
+     */
+    public void setPiINumeroCarrera(int value) {
+        this.piINumeroCarrera = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piINumeroAdicional.
+     * 
+     */
+    public int getPiINumeroAdicional() {
+        return piINumeroAdicional;
+    }
+
+    /**
+     * Define el valor de la propiedad piINumeroAdicional.
+     * 
+     */
+    public void setPiINumeroAdicional(int value) {
+        this.piINumeroAdicional = value;
     }
 
 }

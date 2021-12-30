@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sParametros" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +38,15 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
-    "piSEnvio"
+    "piSParametros"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_SolicitudDatos")
+public class WmSolicitudDatos {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "pi_sParametros")
+    protected String piSParametros;
 
     /**
      * Obtiene el valor de la propiedad piSIdemp.
@@ -73,25 +73,27 @@ public class WmEnvioTransacciones {
     }
 
     /**
-     * Obtiene el valor de la propiedad piSEnvio.
+     * Obtiene el valor de la propiedad piSParametros.
      * 
      * @return
      *     possible object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
+    public String getPiSParametros() {
+        return piSParametros;
     }
 
     /**
-     * Define el valor de la propiedad piSEnvio.
+     * Define el valor de la propiedad piSParametros.
      * 
      * @param value
      *     allowed object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setPiSParametros(String value) {
+        this.piSParametros = value;
     }
 
 }

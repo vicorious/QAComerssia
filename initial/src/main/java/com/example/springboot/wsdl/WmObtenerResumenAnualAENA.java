@@ -26,7 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sAnio" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sPlantilla" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +39,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
-    "piSEnvio"
+    "piSAnio",
+    "piSPlantilla"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_ObtenerResumenAnualAENA")
+public class WmObtenerResumenAnualAENA {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "pi_sAnio")
+    protected String piSAnio;
+    @XmlElement(name = "pi_sPlantilla")
+    protected String piSPlantilla;
 
     /**
      * Obtiene el valor de la propiedad piSIdemp.
@@ -73,25 +77,51 @@ public class WmEnvioTransacciones {
     }
 
     /**
-     * Obtiene el valor de la propiedad piSEnvio.
+     * Obtiene el valor de la propiedad piSAnio.
      * 
      * @return
      *     possible object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
+    public String getPiSAnio() {
+        return piSAnio;
     }
 
     /**
-     * Define el valor de la propiedad piSEnvio.
+     * Define el valor de la propiedad piSAnio.
      * 
      * @param value
      *     allowed object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setPiSAnio(String value) {
+        this.piSAnio = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSPlantilla.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiSPlantilla() {
+        return piSPlantilla;
+    }
+
+    /**
+     * Define el valor de la propiedad piSPlantilla.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiSPlantilla(String value) {
+        this.piSPlantilla = value;
     }
 
 }

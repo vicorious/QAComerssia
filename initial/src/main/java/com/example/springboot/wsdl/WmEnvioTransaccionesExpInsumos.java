@@ -40,8 +40,8 @@ import javax.xml.bind.annotation.XmlType;
     "piSIdemp",
     "piSEnvio"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_EnvioTransaccionesExpInsumos")
+public class WmEnvioTransaccionesExpInsumos {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;

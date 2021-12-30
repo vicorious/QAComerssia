@@ -26,7 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sCalle" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sCarrera" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -38,15 +39,18 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
-    "piSEnvio"
+    "piSCalle",
+    "piSCarrera"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_pb_ObtenerAlmacenEnvio")
+public class WmPbObtenerAlmacenEnvio {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
-    @XmlElement(name = "pi_sEnvio")
-    protected byte[] piSEnvio;
+    @XmlElement(name = "pi_sCalle")
+    protected String piSCalle;
+    @XmlElement(name = "pi_sCarrera")
+    protected String piSCarrera;
 
     /**
      * Obtiene el valor de la propiedad piSIdemp.
@@ -73,25 +77,51 @@ public class WmEnvioTransacciones {
     }
 
     /**
-     * Obtiene el valor de la propiedad piSEnvio.
+     * Obtiene el valor de la propiedad piSCalle.
      * 
      * @return
      *     possible object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public byte[] getPiSEnvio() {
-        return piSEnvio;
+    public String getPiSCalle() {
+        return piSCalle;
     }
 
     /**
-     * Define el valor de la propiedad piSEnvio.
+     * Define el valor de la propiedad piSCalle.
      * 
      * @param value
      *     allowed object is
-     *     byte[]
+     *     {@link String }
+     *     
      */
-    public void setPiSEnvio(byte[] value) {
-        this.piSEnvio = value;
+    public void setPiSCalle(String value) {
+        this.piSCalle = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSCarrera.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiSCarrera() {
+        return piSCarrera;
+    }
+
+    /**
+     * Define el valor de la propiedad piSCarrera.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiSCarrera(String value) {
+        this.piSCarrera = value;
     }
 
 }

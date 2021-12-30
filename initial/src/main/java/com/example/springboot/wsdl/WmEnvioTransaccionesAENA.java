@@ -26,6 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="pi_sIdemp" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sCaja" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="pi_sAeropuerto" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="pi_sEnvio" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -38,13 +40,19 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "piSIdemp",
+    "piSCaja",
+    "piSAeropuerto",
     "piSEnvio"
 })
-@XmlRootElement(name = "wm_EnvioTransacciones")
-public class WmEnvioTransacciones {
+@XmlRootElement(name = "wm_EnvioTransaccionesAENA")
+public class WmEnvioTransaccionesAENA {
 
     @XmlElement(name = "pi_sIdemp")
     protected String piSIdemp;
+    @XmlElement(name = "pi_sCaja")
+    protected String piSCaja;
+    @XmlElement(name = "pi_sAeropuerto")
+    protected String piSAeropuerto;
     @XmlElement(name = "pi_sEnvio")
     protected byte[] piSEnvio;
 
@@ -70,6 +78,54 @@ public class WmEnvioTransacciones {
      */
     public void setPiSIdemp(String value) {
         this.piSIdemp = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSCaja.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiSCaja() {
+        return piSCaja;
+    }
+
+    /**
+     * Define el valor de la propiedad piSCaja.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiSCaja(String value) {
+        this.piSCaja = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad piSAeropuerto.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPiSAeropuerto() {
+        return piSAeropuerto;
+    }
+
+    /**
+     * Define el valor de la propiedad piSAeropuerto.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPiSAeropuerto(String value) {
+        this.piSAeropuerto = value;
     }
 
     /**
