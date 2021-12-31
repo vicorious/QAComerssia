@@ -48,6 +48,35 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- tag::wsdl[] -->
+			<plugin>
+					<groupId>org.jvnet.jaxb2.maven2</groupId>
+					<artifactId>maven-jaxb2-plugin</artifactId>
+					<version>0.14.0</version>
+					<executions>
+					<execution>
+						<id>comerssiaWS</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<schemaLanguage>WSDL</schemaLanguage>
+							<xmlschema>false</xmlschema>
+							<generateDirectory>src/main/java</generateDirectory>
+							<generatePackage>com.example.springboot.wsdl.mapping</generatePackage>
+							<schemas>
+								<schema>
+									<url>
+											https://auditoria.comerssia.com/PDPIntegracion/wsintegracion.asmx?wsdl
+										</url>
+								</schema>
+							</schemas>
+						</configuration>
+					</execution>
+					</executions>
+
+			</plugin>
+			<!-- end::wsdl[] -->			
 		</plugins>
 	</build>
 

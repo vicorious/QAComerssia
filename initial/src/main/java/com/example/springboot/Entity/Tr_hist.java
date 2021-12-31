@@ -1,86 +1,72 @@
 package com.example.springboot.Entity;
-//import javax.management.monitor.StringMonitor;
-
-import java.io.Serializable;
-import java.util.Collection;
-//import java.util.Collections;
 import java.util.Date;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-//import javax.persistence.Temporal;
-//import javax.persistence.TemporalType;
-import javax.persistence.Table;
-//import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+
 
 
 @Entity
-@Table(name="tr_hist") 
-public class Tr_hist implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class Tr_hist {
 
     @Id
-    
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    
- 
+    @GeneratedValue(strategy=GenerationType.AUTO)
+
     @Column(name = "tr_domain")
-    private int tr_domain;
-    
- 
-    @Column(name = "pt_part")
+    private String tr_domain;
+    @Column(name = "tr_part")
     private String tr_part;
-    
-
     @Column(name = "tr_site")
-    private String tr_site;
-    
-
+    private String tr_site;    
     @Column(name = "tr_loc")
     private String tr_loc;
-    
     @Column(name = "tr_effdate")
     private Date tr_effdate;
-    
-
     @Column(name = "tr_qty_oh")
     private String tr_qty_oh;
-    
-
     @Column(name = "tr_nbr")
-    private String tr_nbr;
-    
-
+    private String tr_nbr;  
     @Column(name = "tr_tmbr")
     private String tr_tmbr;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tr_domain", referencedColumnName = "pt_domain")
+    private Pt_mstr pt_domain;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tr_domain", referencedColumnName = "ld_domain")
+    private Ld_det ld_domain;
+ 
+    protected Tr_hist(){}
 
-    @Column(name = "ld_det")
-    private String ld_det;
-
-
-    @Column(name = "pt_mstr")
-    private String pt_mstr;
+    public Tr_hist(String tr_domain, String tr_part, String tr_site, String tr_loc, Date tr_effdate, String tr_qty_oh, String tr_nbr, String  tr_tmbr) {
     
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "tr_domain")
-    private Collection<Ld_det> ld_detCollection;
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "tr_domain")
-    private Collection<Pt_mstr> pt_mstrCollection;
-   
-    public Tr_hist(){       
+    this.tr_domain = tr_domain;
+    this.tr_part = tr_part;
+    this.tr_site = tr_site;
+    this.tr_loc = tr_loc;
+    this.tr_effdate = tr_effdate;
+    this.tr_qty_oh = tr_qty_oh;
+    this.tr_nbr = tr_nbr;
+    this.tr_tmbr = tr_tmbr;
+}
+
+@Override
+public String toString(){
+  return String.format("Pt_mstr[tr_domain='%s', tr_part='%s', tr_site ='%s', tr_loc ='%s',tr_effdate = '%s, tr_qty_oh = '%s', tr_nbr = '%s', tr_tmbr='%s']",
+  tr_domain, tr_part, tr_site, tr_loc, tr_effdate, tr_qty_oh, tr_nbr, tr_tmbr);
+}
+
+    public String getTr_domain(){
+       return tr_domain;
     }
 
-    public int getTr_domain()
-    {
-        return tr_domain;
-    }
-
-    public void setTr_domain(int tr_domain)
-    {
+    public void setTr_domain(String tr_domain){
         this.tr_domain = tr_domain;
     } 
 
@@ -134,15 +120,5 @@ public class Tr_hist implements Serializable {
     public void setTr_tmbr(String tr_tmbr) {
         this.tr_tmbr = tr_tmbr;
     }
-    public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("tr_domain: " + tr_domain + ";");
-        buffer.append("tr_part: " + tr_part + ";");
-        buffer.append("tr_site: " + tr_site + ";");
-        buffer.append("tr_loc: " + tr_loc + ";");
-        buffer.append("tr_effdate: " + tr_effdate + ";"); 
-        buffer.append("tr_qty_oh: " + tr_qty_oh + ";");
-        buffer.append("tr_nbr: " + tr_nbr + ";");
-        buffer.append("tr_tmbr: " + tr_tmbr + ";");
-        return buffer.toString();
-    }}
+   
+}
