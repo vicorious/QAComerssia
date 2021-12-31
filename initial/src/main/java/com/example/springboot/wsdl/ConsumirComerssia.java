@@ -1,7 +1,6 @@
 package com.example.springboot.wsdl;
 
 import com.example.springboot.utils.Constantes;
-
 import com.example.springboot.wsdl.mapping.*;
 
 import org.slf4j.Logger;
@@ -9,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 import org.springframework.ws.soap.client.core.SoapActionCallback;
-
 
 public class ConsumirComerssia extends WebServiceGatewaySupport {
 
@@ -36,10 +34,6 @@ public class ConsumirComerssia extends WebServiceGatewaySupport {
 
     return response;
 
-  }
-
-  private Object getWebServiceTemplate() {
-    return null;
   }
   
 
