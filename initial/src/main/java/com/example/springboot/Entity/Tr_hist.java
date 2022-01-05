@@ -1,4 +1,4 @@
-package com.example.springboot.Entity;
+package com.example.springboot.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,14 +11,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 
-
+import java.io.Serializable;
 
 @Entity
-public class Tr_hist {
+public class Tr_hist implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-
     @Column(name = "tr_domain")
     private String tr_domain;
     @Column(name = "tr_part")

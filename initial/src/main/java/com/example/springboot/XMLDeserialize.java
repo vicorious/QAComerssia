@@ -1,3 +1,4 @@
+package com.example.springboot;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
@@ -5,8 +6,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import com.example.springboot.dto.Test;
 
 
 public class XMLDeserialize {

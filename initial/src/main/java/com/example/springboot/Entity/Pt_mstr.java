@@ -1,4 +1,4 @@
-package com.example.springboot.Entity;
+package com.example.springboot.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,13 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Column;
 
-@Entity
-public class Pt_mstr {
-  
-  @Id   
-  @GeneratedValue(strategy=GenerationType.AUTO)
-    
+import java.io.Serializable;
 
+@Entity
+public class Pt_mstr implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+  
+    @Id   
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "pt_domain")
     private String pt_domain;
     @Column(name = "pt_part")

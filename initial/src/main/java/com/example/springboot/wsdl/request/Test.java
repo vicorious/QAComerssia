@@ -1,4 +1,4 @@
-package com.example.springboot.dto;
+package com.example.springboot.wsdl.request;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

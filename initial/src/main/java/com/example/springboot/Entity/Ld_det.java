@@ -1,4 +1,4 @@
-package com.example.springboot.Entity;
+package com.example.springboot.entity;
 
 
 
@@ -11,12 +11,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
-@Entity
-public class Ld_det {
-  
-  @Id   
-  @GeneratedValue(strategy=GenerationType.AUTO)
+import java.io.Serializable;
 
+@Entity
+public class Ld_det implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+  
+    @Id   
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "ld_domain")
     private String ld_domain;
     @Column(name = "ld_site")
