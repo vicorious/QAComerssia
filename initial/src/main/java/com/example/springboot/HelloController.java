@@ -26,6 +26,17 @@ public class HelloController
 		return "FAIL";
 	}
 
+	@GetMapping("/enviarTransactionCallBack")
+	public String enviarCallBack() {
+		try {
+			this.qadService.reportes();
+			return "OK";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "FAIL";
+	}
+
 	@GetMapping("/reportes")
 	public String reportes() {
 		try {
@@ -36,5 +47,18 @@ public class HelloController
 		}
 		return "FAIL";
 	}
+
+
+	@GetMapping("/reportesCallBack")
+	public String reportesCallBack() {
+		try {
+			this.qadService.reportes();
+			return "OK";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "FAIL";
+	}
+	
 
 }

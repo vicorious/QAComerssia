@@ -20,6 +20,8 @@ public class Ld_det implements Serializable {
   
     @Id   
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
+    private String id;
     @Column(name = "ld_domain")
     private String ld_domain;
     @Column(name = "ld_site")
@@ -28,11 +30,8 @@ public class Ld_det implements Serializable {
     private String ld_loc;
     @Column(name = "ld_qty_oh")
     private String ld_qty_oh;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ld_domain", referencedColumnName = "pt_domain")
-    private Pt_mstr pt_domain;
-    @OneToOne(mappedBy = "ld_domain")
-    private Tr_hist tr_domain;
+    @Column(name = "ld_part")
+    private String ld_part;    
 
     
     protected Ld_det() {}
@@ -51,6 +50,16 @@ public class Ld_det implements Serializable {
   return String.format("Ld_det[ld_domain=%d, ld_site='%s', ld_loc ='%s', ld_qty_oh ='%s']",
   ld_domain, ld_site, ld_loc, ld_qty_oh);
 }
+
+
+
+public String getLd_part() {
+    return ld_part;
+}
+
+public void setLd_part(String ld_part){
+    this.ld_part = ld_part;
+} 
 
     public String getLd_domain() {
         return ld_domain;
@@ -83,4 +92,15 @@ public class Ld_det implements Serializable {
     public void setLd_qty_oh(String ld_qty_oh) {
         this.ld_qty_oh = ld_qty_oh;
     }
+
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
+
  }

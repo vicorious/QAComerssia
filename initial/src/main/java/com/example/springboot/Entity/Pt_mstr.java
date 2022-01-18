@@ -16,6 +16,8 @@ public class Pt_mstr implements Serializable {
   
     @Id   
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
+    private String id;
     @Column(name = "pt_domain")
     private String pt_domain;
     @Column(name = "pt_part")
@@ -28,10 +30,6 @@ public class Pt_mstr implements Serializable {
     private String pt_status;
     @Column(name = "pt_article")
     private String pt_article;
-    @OneToOne(mappedBy = "pt_domain")
-    private Ld_det ld_domain;
-    @OneToOne(mappedBy = "pt_domain")
-    private Tr_hist tr_domain;
   
   protected Pt_mstr() {}
 
@@ -95,5 +93,13 @@ public String toString(){
     }
     public void setPt_article(String pt_article) {
         this.pt_article = pt_article;
+    }
+
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
     }
   }

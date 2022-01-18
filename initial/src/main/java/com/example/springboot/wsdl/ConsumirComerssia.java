@@ -20,6 +20,8 @@ public class ConsumirComerssia extends WebServiceGatewaySupport {
 
   private String callBack = "http://localhost:8080//servicioqueespererespuesta";
 
+  private String callBackReportes = "http://localhost:8080//servicioqueespererespuesta";
+
   /**
    * 
    * @param pi_sIdemp
@@ -60,7 +62,7 @@ public class ConsumirComerssia extends WebServiceGatewaySupport {
       WmReporteResponse response = (WmReporteResponse) getWebServiceTemplate()
               .marshalSendAndReceive(Constantes.WSDL, wmReporte,
                       new SoapActionCallback(
-                              this.callBack));
+                              this.callBackReportes  ));
 
       return response;
 

@@ -18,8 +18,10 @@ public class Tr_hist implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Id
+    @Id   
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
+    private String id;
     @Column(name = "tr_domain")
     private String tr_domain;
     @Column(name = "tr_part")
@@ -36,12 +38,6 @@ public class Tr_hist implements Serializable {
     private String tr_nbr;  
     @Column(name = "tr_tmbr")
     private String tr_tmbr;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tr_domain", referencedColumnName = "pt_domain")
-    private Pt_mstr pt_domain;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tr_domain", referencedColumnName = "ld_domain")
-    private Ld_det ld_domain;
  
     protected Tr_hist(){}
 
@@ -120,6 +116,14 @@ public String toString(){
     }
     public void setTr_tmbr(String tr_tmbr) {
         this.tr_tmbr = tr_tmbr;
+    }
+
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
     }
    
 }

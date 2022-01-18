@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/Email")
+@RequestMapping(value = "/comerssia")
 public class EmailRest {
 
     @Autowired
     private EmailPort emailPort;
 
-    @PostMapping(value = "/send")
+    @PostMapping(value = "/notificaciones")
     @ResponseBody
     public boolean SendEmail(@RequestBody EmailBody emailBody)  {
         return emailPort.sendEmail(emailBody);
