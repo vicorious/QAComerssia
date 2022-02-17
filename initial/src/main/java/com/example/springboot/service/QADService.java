@@ -63,7 +63,7 @@ public class QADService
         encabezado.setENCHoraTrx(LocalTime.now().toString().split("\\.")[0]);
         encabezado.setENCModo("L-C");
         encabezado.setENCTipoProc("Standar");
-        encabezado.setENCConsTrx("0011");
+
         encabezado.setENCTasaConversion("1");
 
         encabezado.setENCBruto("0");
@@ -120,9 +120,12 @@ public class QADService
 
         int i = 4;
         int cantidades = 0;
+        String consecutivo = "";
 
         for(CustomResponse custom: resultado)
         {
+            if(i == 4)
+                consecutivo = custom.getConsecutivo();
             cantidades += Integer.parseInt(custom.getCantidad());
 
             Item item1 = new Item();
@@ -182,6 +185,8 @@ public class QADService
         }
         //Total de productos en el encabezado
         encabezado.setENCTotalReferencias(cantidades + "");
+        //Consecutivo
+        encabezado.setENCConsTrx(consecutivo);
 
         itemsl.add(item2);
         itemsl.add(item3);
