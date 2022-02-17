@@ -12,8 +12,9 @@ public class CustomResponse
     private String e_ld_site;
     private String e_ld_loc;
     private String e_ld_qty_oh;
+    private String cantidad;
 
-    public CustomResponse(String pt_domain, String pt_part, String pt_article, String pt_desc1, String pt_desc2, String pt_status, String e_ld_domain, String e_ld_site, String e_ld_loc, String e_ld_qty_oh) {
+    public CustomResponse(String pt_domain, String pt_part, String pt_article, String pt_desc1, String pt_desc2, String pt_status, String e_ld_domain, String e_ld_site, String e_ld_loc, String e_ld_qty_oh, String cantidad) {
         this.pt_domain = pt_domain;
         this.pt_part = pt_part;
         this.pt_article = pt_article;
@@ -24,6 +25,15 @@ public class CustomResponse
         this.e_ld_site = e_ld_site;
         this.e_ld_loc = e_ld_loc;
         this.e_ld_qty_oh = e_ld_qty_oh;
+        this.cantidad = cantidad;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 
     public String getPt_domain() {

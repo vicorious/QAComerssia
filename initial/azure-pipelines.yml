@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '3e2d72cb-9f3e-46fa-aefe-a44544c60f63'
-  imageRepository: 'tcc'
+  imageRepository: 'comerssia'
   containerRegistry: 'assaabloy.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -66,7 +66,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'tcc.default'
+    environment: 'comerssia.default'
     strategy:
       runOnce:
         deploy:

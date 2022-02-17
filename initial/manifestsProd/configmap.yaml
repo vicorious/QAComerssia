@@ -4,7 +4,7 @@ metadata:
   name: qacomerssia-config
   
   labels:
-    app: tcc
+    app: qacomerssia
 data:
   QACOMERSSIA_APP_PROFILE: production
   QACOMERSSIA_APP_PORT : '8080'

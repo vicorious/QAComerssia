@@ -1,6 +1,7 @@
 package com.example.springboot;
 
 import com.example.springboot.service.QADService;
+import com.example.springboot.wsdl.mapping.WmEnvioTransaccionesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +19,14 @@ public class HelloController
 	@GetMapping("/enviartransacion")
 	public String index() {
 		try {
-			this.qadService.getQADInfo();
+			WmEnvioTransaccionesResponse response = this.qadService.getQADInfo();
+			String result = "Servicio Comerssia consumido correctamente: "+response.getWmEnvioTransaccionesResult().getContent().size();
+			for(Object resultr : response.getWmEnvioTransaccionesResult().getContent())
+				result = result + resultr.toString();
+			this.qadService.email((result), "QAD Comerssia");
 			return "OK";
 		} catch (Exception e) {
-			e.printStackTrace();
+			this.qadService.email(e.getMessage(), "QAD Comerssia");
 		}
 		return "FAIL";
 	}
@@ -29,10 +34,11 @@ public class HelloController
 	@GetMapping("/enviarTransactionCallBack")
 	public String enviarCallBack() {
 		try {
-			this.qadService.reportes();
+			this.qadService.email("Servicio Comerssia consumido correctamente", "QAD Comerssia");
 			return "OK";
+
 		} catch (Exception e) {
-			e.printStackTrace();
+			this.qadService.email(e.getMessage(), "QAD Comerssia");
 		}
 		return "FAIL";
 	}
@@ -52,7 +58,6 @@ public class HelloController
 	@GetMapping("/reportesCallBack")
 	public String reportesCallBack() {
 		try {
-			this.qadService.reportes();
 			return "OK";
 		} catch (Exception e) {
 			e.printStackTrace();

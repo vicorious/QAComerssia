@@ -20,7 +20,7 @@ public class EmailService implements EmailPort{
 
     @Override
     public boolean sendEmail(EmailBody emailBody)  {
-        LOGGER.info("EmailBody: {}", emailBody.toString());
+        //LOGGER.info("EmailBody: {}", emailBody.toString());
         return sendEmailTool(emailBody.getContent(),emailBody.getEmail(), emailBody.getSubject());
     }
 
