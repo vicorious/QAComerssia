@@ -2,12 +2,14 @@ package com.example.springboot.wsdl.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 
 @JacksonXmlRootElement(localName = "encabezado")
 @JsonIgnoreProperties
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Encabezado {
 
     @JacksonXmlProperty(localName = "ENCDescripcion")

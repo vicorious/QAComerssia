@@ -24,7 +24,7 @@ public interface QADRepository extends CrudRepository<Ld_det, Long> {
             "    e.ld_domain,"+
             "    e.ld_site,"+
             "    e.ld_loc,"+
-            "    e.ld_qty_oh, SUM(e.ld_qty_oh) as cantidad, t.tr_site + '-' + t.tr_nbr as consecutivo) from Ld_det e, Pt_mstr p, Tr_hist t "+
+            "    e.ld_qty_oh, e.ld_qty_oh as cantidad, t.tr_site + '-' + t.tr_nbr as consecutivo) from Ld_det e, Pt_mstr p, Tr_hist t "+
             "    WHERE e.ld_domain = 'cerracol' AND"+
             "    e.ld_site        = 'alm_destino'  AND"+
             "    e.ld_loc         = 'TRA001' AND "+
@@ -33,7 +33,7 @@ public interface QADRepository extends CrudRepository<Ld_det, Long> {
             "    t.tr_part         = e.ld_part AND"+
             "    t.tr_effdate   = CURRENT_TIMESTAMP AND"+
             "    t.tr_loc           = e.ld_loc AND"+
-            "    t.tr_site          = e.ld_site AND "+
+            "    t.tr_site          = e.ld_site "+
             "    AND p.pt_domain  = 'cerracol'  " +
             "    AND p.pt_part    = e.ld_part" +
             "    ORDER BY e.ld_qty_oh")

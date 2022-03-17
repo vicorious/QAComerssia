@@ -40,7 +40,7 @@ public class ConsumirComerssia {
       String callBack = "http://tempuri.org/wm_EnvioTransacciones";
       XmlMapper xmlMapper = new XmlMapper();
       xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
-      xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
+      //xmlMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
       String xml = xmlMapper.writeValueAsString(pi_sEnvio);
 
       log.info("XML: "+ xml);

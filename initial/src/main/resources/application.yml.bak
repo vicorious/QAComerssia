@@ -24,7 +24,7 @@ management:
 ---
 
 server:
-  port: ${DEV_PEDIDOS_APP_PORT:8080}
+  port: ${DEV_PEDIDOS_APP_PORT:8081}
 
 spring:
   profiles: development
@@ -32,9 +32,9 @@ spring:
   # Database
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${QACOMERSSIA_DB_USERNAME}
-    password: ${QACOMERSSIA_DB_PASSWORD}
-    url: jdbc:sqlserver://${QACOMERSSIA_DB_HOST}:${QACOMERSSIA_DB_PORT};database=${QACOMERSSIA_DB_NAME};loginTimeout=30;
+    username: ${DEV_PEDIDOS_DB_USERNAME}
+    password: ${DEV_PEDIDOS_DB_PASSWORD}
+    url: jdbc:sqlserver://${DEV_PEDIDOS_DB_HOST}:${DEV_PEDIDOS_DB_PORT};database=${DEV_PEDIDOS_DB_NAME};loginTimeout=30;
     initialization-mode: always
     continue-on-error: true
   # JPA properties
@@ -87,7 +87,7 @@ bus:
 ---
 
 server:
-  port: ${PEDIDOS_APP_PORT:8080}
+  port: ${PEDIDOS_APP_PORT:8081}
 
 spring:
   profiles: production
@@ -95,9 +95,9 @@ spring:
   # Database
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${QACOMERSSIA_DB_USERNAME}
-    password: ${QACOMERSSIA_DB_PASSWORD}
-    url: jdbc:sqlserver://${QACOMERSSIA_DB_HOST}:${QACOMERSSIA_DB_PORT};database=${QACOMERSSIA_DB_NAME};loginTimeout=30;
+    username: ${PEDIDOS_DB_USERNAME}
+    password: ${PEDIDOS_DB_PASSWORD}
+    url: jdbc:sqlserver://${PEDIDOS_DB_HOST}:${PEDIDOS_DB_PORT};database=${PEDIDOS_DB_NAME};loginTimeout=30;
     initialization-mode: never
     continue-on-error: true
   # JPA properties
@@ -109,7 +109,7 @@ spring:
     properties:
       hibernate:
         jdbc:
-          timezone: ${QACOMERSSIA_DB_TIMEZONE}
+          timezone: ${PEDIDOS_DB_TIMEZONE}
         hbm2ddl:
           '[import_files_sql_extractor]': org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
   rabbitmq:

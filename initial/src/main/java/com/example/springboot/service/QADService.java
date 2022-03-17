@@ -3,11 +3,13 @@ package com.example.springboot.service;
 import com.example.springboot.dto.CustomResponse;
 import com.example.springboot.email.EmailBody;
 import com.example.springboot.utils.Constantes;
+import com.example.springboot.utils.YAMLConfig;
 import com.example.springboot.wsdl.ConsumirComerssia;
 import com.example.springboot.wsdl.mapping.WmEnvioTransaccionesResponse;
 import com.example.springboot.wsdl.requesreportes.DATOS;
 import com.example.springboot.wsdl.request.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -29,9 +31,18 @@ public class QADService
     @Autowired
     QADRepository repository;
 
+    @Autowired
+    YAMLConfig yamlConfig;
+
     String usuario = Constantes.USUARIO;
     String pass = Constantes.PASSWORD;
-    String emailURI = "http://localhost:8081/comerssia/notificaciones";
+    String emailURI = "";
+
+    public QADService() {
+        this.yamlConfig = new YAMLConfig();
+        this.emailURI = "http://"+this.yamlConfig.getServerPort()+":8081/comerssia/notificaciones";
+
+    }
 
     /**
      *
@@ -114,7 +125,7 @@ public class QADService
         item4.setIcpletra("VEN");
 
         Detalle detalle = new Detalle();
-        List<Item> itemsl = new ArrayList<>();
+        List<Object> itemsl = new ArrayList<>();
 
         List<CustomResponse> resultado = this.repository.getInfoFromQAD();
 
@@ -128,7 +139,7 @@ public class QADService
                 consecutivo = custom.getConsecutivo();
             cantidades += Integer.parseInt(custom.getCantidad());
 
-            Item item1 = new Item();
+            ItemReferencia item1 = new ItemReferencia();
 
             item1.setImprime("False");
             item1.setVisible("True");

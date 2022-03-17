@@ -1,12 +1,26 @@
 package com.example.springboot.wsdl.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 
 @JacksonXmlRootElement(localName = "itemReferencia")
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ItemReferencia {
 
+    @JsonInclude
+    @JacksonXmlProperty(isAttribute = true, localName = "Imprime")
+    private String imprime;
+    @JsonInclude
+    @JacksonXmlProperty(isAttribute = true, localName = "Visible")
+    private String visible;
+    @JsonInclude
+    @JacksonXmlProperty(isAttribute = true, localName = "Tipo")
+    private String tipo;
+    @JsonInclude
+    @JacksonXmlProperty(isAttribute = true, localName = "nitem")
+    private String nitem;
     @JacksonXmlProperty(isAttribute = true, localName = "Tiporef")
     private String tiporef;
     @JacksonXmlProperty(localName = "REFCodClasificacion")
@@ -19,6 +33,7 @@ public class ItemReferencia {
     private String REFNombreCorto;
     @JacksonXmlProperty(localName = "REFNombreLargo")
     private String REFNombreLargo;
+    @JsonInclude
     @JacksonXmlProperty(localName = "CARCodigo1")
     private String CARCodigo1;
     @JacksonXmlProperty(localName = "REFPrecioLista")
@@ -47,8 +62,10 @@ public class ItemReferencia {
     private String REFCapturaSerial;
     @JacksonXmlProperty(localName = "REFFactorConversion")
     private String REFFactorConversion;
+    @JsonInclude
     @JacksonXmlProperty(localName = "REFInventario")
     private String REFInventario;
+    @JsonInclude
     @JacksonXmlProperty(localName = "REFEsParaVenta")
     private String REFEsParaVenta;
     @JacksonXmlProperty(localName = "estado")
@@ -75,6 +92,22 @@ public class ItemReferencia {
     private String ICPcadena;
     @JacksonXmlProperty(localName = "ICPLetra")
     private String ICPletra;
+
+    public void setImprime(String imprime) {
+        this.imprime = imprime;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setNitem(String nitem) {
+        this.nitem = nitem;
+    }
 
     public void setTiporef(String tiporef) {
         this.tiporef = tiporef;
