@@ -1,10 +1,14 @@
 package com.example.springboot;
 
+import com.example.springboot.exception.XMLNotBuiltGoodException;
 import com.example.springboot.service.QADService;
 import com.example.springboot.wsdl.mapping.WmEnvioTransaccionesResponse;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.xml.soap.SOAPException;
 
 @RestController
 public class HelloController 
@@ -18,52 +22,7 @@ public class HelloController
 
 	@GetMapping("/enviartransacion")
 	public String index() {
-		try {
-			WmEnvioTransaccionesResponse response = this.qadService.getQADInfo();
-			String result = "Servicio Comerssia consumido correctamente: "+response.getWmEnvioTransaccionesResult().getContent().size();
-			for(Object resultr : response.getWmEnvioTransaccionesResult().getContent())
-				result = result + resultr.toString();
-			this.qadService.email((result), "QAD Comerssia");
-			return "OK";
-		} catch (Exception e) {
-			this.qadService.email(e.getMessage(), "QAD Comerssia");
-		}
-		return "FAIL";
+		return this.qadService.getQADInfo();
 	}
-
-	@GetMapping("/enviarTransactionCallBack")
-	public String enviarCallBack() {
-		try {
-			this.qadService.email("Servicio Comerssia consumido correctamente", "QAD Comerssia");
-			return "OK";
-
-		} catch (Exception e) {
-			this.qadService.email(e.getMessage(), "QAD Comerssia");
-		}
-		return "FAIL";
-	}
-
-	@GetMapping("/reportes")
-	public String reportes() {
-		try {
-			this.qadService.reportes();
-			return "OK";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "FAIL";
-	}
-
-
-	@GetMapping("/reportesCallBack")
-	public String reportesCallBack() {
-		try {
-			return "OK";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "FAIL";
-	}
-	
 
 }

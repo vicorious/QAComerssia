@@ -1,5 +1,6 @@
 package com.example.springboot.wsdl;
 
+import com.example.springboot.exception.XMLNotBuiltGoodException;
 import com.example.springboot.utils.Constantes;
 import com.example.springboot.wsdl.mapping.*;
 
@@ -21,6 +22,7 @@ import org.springframework.ws.soap.saaj.SaajSoapMessageFactory;
 
 import javax.xml.bind.DatatypeConverter;
 import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPException;
 import javax.xml.ws.Response;
 import java.util.Base64;
 
@@ -35,8 +37,7 @@ public class ConsumirComerssia {
    * @return
    */
   @Bean
-  public WmEnvioTransaccionesResponse envioTransacciones(String pi_sIdemp, Transaction pi_sEnvio) throws Exception
-  {
+  public WmEnvioTransaccionesResponse envioTransacciones(String pi_sIdemp, Transaction pi_sEnvio) throws JsonProcessingException, SOAPException, XMLNotBuiltGoodException {
       String callBack = "http://tempuri.org/wm_EnvioTransacciones";
       XmlMapper xmlMapper = new XmlMapper();
       xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
@@ -60,7 +61,11 @@ public class ConsumirComerssia {
       Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 
       marshaller.setContextPath("com.example.springboot.wsdl.mapping");
-      marshaller.afterPropertiesSet();
+      try {
+          marshaller.afterPropertiesSet();
+      } catch (Exception e) {
+          throw new XMLNotBuiltGoodException(e);
+      }
 
       webServiceTemplate.setMarshaller(marshaller);
       webServiceTemplate.setUnmarshaller(marshaller);

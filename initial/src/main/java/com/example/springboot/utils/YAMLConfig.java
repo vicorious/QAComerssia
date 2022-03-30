@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @PropertySource(value = "classpath:application.yml", factory = YamlPropertySourceFactory.class)
 public class YAMLConfig
 {
-    @Value("${spring.application.name}")
+    @Value("${server.port}")
     private String SERVER_PORT;
 
     public String getServerPort() {
