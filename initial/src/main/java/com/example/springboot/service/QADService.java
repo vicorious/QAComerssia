@@ -4,6 +4,7 @@ import com.example.springboot.dto.CustomResponse;
 import com.example.springboot.email.EmailBody;
 import com.example.springboot.dto.EmailDone;
 import com.example.springboot.entity.Comerssia;
+import com.example.springboot.entity.ReporteComerssia;
 import com.example.springboot.exception.XMLNotBuiltGoodException;
 import com.example.springboot.repository.ReporteRepository;
 import com.example.springboot.utils.Constantes;
@@ -246,7 +247,8 @@ public class QADService
                 result.concat(itera.toString());
             }
             System.out.print(result);
-            this.email(dones);
+            this.saveReport(dones);
+            this.email(dones);            
             return "OK";
 
         } catch (JsonProcessingException e) {
@@ -277,6 +279,30 @@ public class QADService
         ConsumirComerssia consumirComerssia = new ConsumirComerssia();
         consumirComerssia.reportes(datos);
 
+    }
+
+    /**
+     * 
+     * @param emailDones
+     * @throws Exception
+     */
+    private void saveReport(List<EmailDone> emailDones) throws Exception
+    {        
+        for(EmailDone done: emailDones)
+        {
+            ReporteComerssia reporte = new ReporteComerssia();
+            reporte.setR_Bodega_Destino(done.getDestino());
+            reporte.setR_Bodega_Origen(done.getOrigen());
+            reporte.setR_Fecha(done.getFecha());
+            reporte.setR_CD(done.getStatus());
+            reporte.setR_sku(done.getSku());
+            reporte.setR_Descripcion(done.getDescripcion());
+            reporte.setR_CantidadEnviada(done.getCantidad());
+            reporte.setR_FechaRegistroEnvio(done.getFecha());
+
+            this.reporteRepository.save(reporte);
+        }
+        
     }
 
     /**
